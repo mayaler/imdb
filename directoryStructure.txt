@@ -1,0 +1,12 @@
+Movies
+ - app.js (notre application Node)
+ - wwwroot
+    - index.html
+    - img
+    - css
+    - scripts (client)
+ - data
+ - views
+    - movieList.ejs
+    - ...
+ - scripts (serveur)

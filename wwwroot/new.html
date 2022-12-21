@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/main.css" />
+    <title>Document</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;500;600;700;800;900&display=swap");
+
+      form {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        background-color: rgb(17, 16, 16);
+        color: aliceblue;
+        line-height: 2em;
+        justify-content: center;
+        font-weight: bolds;
+        text-decoration: none;
+        font-family: "Inter", sans-serif;
+      }
+
+      div.container {
+        width: 90vw;
+        margin: auto;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        background-color: rgb(17, 16, 16);
+      }
+
+      label {
+        margin-top: 5px;
+        font-weight: bold;
+      }
+      input:not(.btn) {
+        height: 30px;
+        width: 400px;
+      }
+
+      input.btn {
+        position: absolute;
+        top: 600px;
+        text-decoration: none;
+        border: 1px black solid;
+        padding: 10px;
+        background-color: aliceblue;
+        color: rgb(17, 16, 16) !important;
+        font-weight: bold;
+        margin: 0 7px;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container new">
+      <form action="/movies" method="POST">
+        <label for="movieName">Titre du film</label>
+        <input type="text" name="movieName" id="movieName" value="" />
+        <label for="year">year</label>
+        <input type="text" name="year" id="year" value="" />
+        <label for="dirctor">director</label>
+        <input type="text" name="director" id="director" value="" />
+        <label for="actors">actors</label>
+        <input type="text" name="actors" id="actors" value="" />
+        <label for="note">description</label>
+        <input type="text" name="description" id="description" value="" />
+        <label for="img_url">image URL :</label>
+        <input type="text" name="img_url" id="img_url" value="" />
+        <input class="btn" type="submit" value="Envoyer" />
+      </form>
+      <img class="remote" src="/img/remote.png" alt="" height="70%" />
+    </div>
+  </body>
+</html>

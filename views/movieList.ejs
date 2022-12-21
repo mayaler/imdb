@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      
+
+
+
+    </style> 
+    <link rel="stylesheet" href="../wwwroot/css/main.css">
+    <script>
+      function getApiMovie(id){
+          // Envoyer une requête vers l'API /movies/:6398842ef16933d20054c739
+          let url = '/movies/:' + id ;
+          let editUrl = '/edit/:' + id ;
+          let deleteUrl = '/delete/:' + id ;
+          fetch(url)
+              .then(function (response) { 
+                      return response.json();
+                      })
+                      .then(function (resultJson) {
+                          const movieDetails = document.getElementById("movieDetails");
+                          console.log(resultJson[0].Poster_Link);
+                           movieDetails.innerHTML = `<h2 class='movie_name'> ${resultJson[0].Series_Title}</h2><img class='img' src="${resultJson[0].Poster_Link}" width="100px"/><h3 class='director'>${resultJson[0].Director}</h3> <h4 class='year'>${resultJson[0].Released_Year}</h4> <p class='actors'>${resultJson[0].Star1}, ${resultJson[0].Star2}, ${resultJson[0].Star3}</p> <p class='overview'>${resultJson[0].Overview}</p><div id='buttons'><a href='${editUrl}' class='btn edit'>Edit</a> <a href='javascript:deleteApiMovie("${resultJson[0]._id}")' class='btn delete'>Delete</a></div> `;
+                
+                          //console.log(resultJson[0].Director);
+                          })
+              .catch(function (err) { 
+                          console.log("Something went wrong!", err);
+                      }); 
+      }
+
+      function deleteApiMovie(idMovie) {
+        if(confirm("Are U Sure?")){
+  fetch("/movies/:" + idMovie, { method: "DELETE" }).then(function (response) {
+  //  alert("Item Deleted");
+   window.document.location = "/movies";
+  });
+}
+}
+
+    </script>
+  </head>
+    <body>
+      <div class="container">
+        <img src="/img/strip_1.png" alt="">
+      <div class="movies_list">
+        <img src="/img/logo.png" alt="">
+      <ul>
+        <% for(let i=0; i<movies.length; i++) { %>
+          <li>
+            <!-- <a href="/movies/:<%= movies[i]._id %>"><%= movies[i].Series_Title %></a> -->
+            <a class="movies" href="javascript:getApiMovie('<%= movies[i]._id %>')"><%= movies[i].Series_Title %></a>
+          </li>
+        <% } %>
+      </ul>
+      <div class="nav">
+      <a href="/movies?start=1" class="btn">«</a>
+      &nbsp;
+      <a href="/movies?start=<%= prevIndex %>" class="btn">‹</a>
+      <a href="new.html" class="btn new">NEW</a>
+      <a href="/movies?start=<%= nextIndex %>" class="btn">»</a>
+      &nbsp;
+      <a href="/movies?start=<%= maxIndex %>" class="btn">›</a>
+    </div>
+
+    </div>
+
+
+
+      <div id="movieDetails"></div>
+      <img src="/img/strip_2.png" alt="">
+    </div>
+
+    </body>
+</html>

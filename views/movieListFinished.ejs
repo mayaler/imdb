@@ -1,0 +1,12 @@
+<html>
+    <body>
+      <ul>
+        <% movies.forEach(function(movie) { %>
+          <li>
+            <strong><%= movie.Series_Title %></strong>
+          </li>
+        <% }); %>
+        <a href="/movies?start=<%=ranges[0]%>&end=<%=ranges[1]%>">&lt;&lt;</a>&nbsp;<a href="/movies?start=<%=ranges[2]%>&end=<%=ranges[3]%>">&lt;</a>&nbsp;<a href="/movieNew.html">NEW</a>&nbsp;<a href="/movies?start=<%=ranges[4]%>&end=<%=ranges[5]%>">&gt;</a>&nbsp;<a href="/movies?start=<%=ranges[6]%>&end=<%=ranges[7]%>">&gt;&gt;</a>
+      </ul>
+    </body>
+</html>

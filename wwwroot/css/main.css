@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;500;600;700;800;900&display=swap");
+
+body {
+  margin: 0%;
+  width: 100vw;
+  font-family: "Inter", sans-serif;
+  overflow: hidden;
+}
+div.container {
+  width: 100vw;
+  margin: auto;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  /* background-color: rgb(17, 16, 16); */
+  background-color: rgb(0, 0, 0);
+}
+
+div.movies_list {
+  width: 30%;
+  /* border: 1px black solid; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: rgb(0, 0, 0);
+  color: aliceblue;
+  line-height: 2em;
+  justify-content: center;
+  font-weight: bold;
+
+  text-decoration: none;
+  /* margin-right: 30px; */
+}
+
+div.movies_list ul {
+  list-style: none;
+}
+
+div.movies_list a {
+  text-decoration: none;
+  color: #ffe3b9;
+}
+div.movies_list a.movies {
+  font-size: 1.5em;
+}
+div.movies_list a.movies:focus {
+  color: #1783b8;
+}
+div.movies_list a.movies:hover {
+  color: #1783b8;
+}
+
+#movieDetails img {
+  border: 10px #1783b8 solid;
+  /* border-radius: 10px; */
+}
+
+div.nav {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 650px;
+}
+
+p {
+  list-style: 1.5em;
+  width: 80%;
+  text-align: justify;
+}
+
+#movieDetails {
+  width: 30%;
+  /* border: 1px black solid; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: rgb(0, 0, 0);
+  color: #ffe3b9;
+  /* margin-left: 30px; */
+}
+
+#buttons {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 655px;
+}
+
+a.btn {
+  text-decoration: none;
+  border: 1px black solid;
+  padding: 10px;
+  background-color: #f3c519;
+  color: rgb(17, 16, 16) !important;
+  font-weight: bold;
+  margin: 0 7px;
+  border-radius: 10px;
+}
+
+a.btn.new {
+  background-color: #1783b8;
+}
+a.btn.edit {
+  background-color: #1783b8;
+}
+
+#movieDetails h2 {
+  font-size: 1.5em;
+  text-align: center;
+  color: #ffe3b9;
+  margin-top: 50px;
+}
+
+#movieDetails h4 {
+  margin: 0;
+  font-size: 1em;
+}
+
+#movieDetails h3 {
+  font-size: 1.3em;
+}
+
+#movieDetails p.actors {
+  font-weight: bold;
+  text-align: center;
+  font-size: 1em;
+}
+img.remote {
+  /* position: absolute;
+  bottom: 0; */
+  align-self: flex-end;
+}
+div.container.new {
+  justify-content: space-around;
+  width: 100vw;
+}

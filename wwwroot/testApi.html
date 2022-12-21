@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <script>
+            function getApiMovie(id){
+                // Envoyer une requête vers l'API /movies/:6398842ef16933d20054c739
+                let url = '/movies/:' + id ;
+                fetch(url)
+                    .then(function (response) { 
+                            return response.json();
+                            })
+                            .then(function (resultJson) {
+                                const movieDetails = document.getElementById("movieDetails");
+                                movieDetails.innerText = resultJson[0].Director;
+                                console.log(resultJson[0].Director);
+                                })
+                    .catch(function (err) { 
+                                console.log("Something went wrong!", err);
+                            }); 
+            }
+        </script>
+    </head>
+    <body>
+        <a href="javascript:getApiMovie('6398842ef16933d20054cb10')">Test</a>
+        <div id="movieDetails">...</div>
+    </body>
+</html>

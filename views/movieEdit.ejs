@@ -1,0 +1,96 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;500;600;700;800;900&display=swap");
+      form {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        background-color: rgb(17, 16, 16);
+        color: aliceblue;
+        line-height: 2em;
+        justify-content: center;
+        font-weight: bolds;
+        text-decoration: none;
+      }
+
+      div.container {
+        width: 80vw;
+        margin: auto;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        background-color: rgb(17, 16, 16);
+      }
+
+      input.btn {
+        text-decoration: none;
+        border: 1px black solid;
+        padding: 10px;
+        background-color: aliceblue;
+        color: rgb(17, 16, 16) !important;
+        font-weight: bold;
+        margin: 0 7px;
+        border-radius: 10px;
+      }
+    </style>
+    <script>
+      function getApiMovie(id) {
+        // Envoyer une requête vers l'API /movies/:6398842ef16933d20054c739
+        let url = "/movies/:" + id;
+        let editUrl = "/edit/:" + id;
+        let deleteUrl = "/delet/:" + id;
+        fetch(url)
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (resultJson) {
+            const movieDetails = document.getElementById("movieDetails");
+            movieDetails.innerHTML = `<div class='movie_name'> Title: ${resultJson[0].Series_Title}</div><img class='img' src="${resultJson[0].Poster_Link}" width="100px"/><div class='director'> Director: ${resultJson[0].Director}</div> <div class='year'> Year: ${resultJson[0].Released_Year}</div> <div class='actors'> Actors: ${resultJson[0].Star1}, ${resultJson[0].Star2}, ${resultJson[0].Star3}</div> <div class='overview'> Overview: ${resultJson[0].Overview}</div><a href='${editUrl}'' class='btn edit'>Edit</a> <a href='${deleteUrl}'' class='btn delete'>Delete</a> `;
+
+            //console.log(resultJson[0].Director);
+          })
+          .catch(function (err) {
+            console.log("Something went wrong!", err);
+          });
+      }
+    </script>
+    <link rel="stylesheet" href="../wwwroot/css/main.css" />
+  </head>
+  <body>
+    <div class="container new">
+      <form action="/movies" method="POST">
+        <label for="movieName">Titre du film</label>
+        <input
+          type="text"
+          name="movieName"
+          id="movieName"
+          value="<%=Series_Title%>"
+        />
+        <label for="year">year</label>
+        <input type="text" name="year" id="year" value="" />
+        <label for="dirctor">director</label>
+        <input type="text" name="director" id="director" value="" />
+        <label for="actors">actors</label>
+        <input type="text" name="actors" id="actors" value="" />
+        <label for="note">description</label>
+        <input type="text" name="description" id="description" value="" />
+        <label for="img_url">image URL :</label>
+        <input type="text" name="img_url" id="img_url" value="" />
+        <input class="btn" type="submit" value="Envoyer" />
+      </form>
+      <img class="remote" src="/img/remote.png" alt="" height="70%" />
+    </div>
+  </body>
+</html>
