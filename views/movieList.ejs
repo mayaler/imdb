@@ -51,7 +51,7 @@
       <div class="container">
         <img src="/img/strip_1.png" alt="">
       <div class="movies_list">
-        <img src="/img/logo.png" alt="">
+        <img class="logo" src="/img/logo.png" alt="">
       <ul>
         <% for(let i=0; i<movies.length; i++) { %>
           <li>
@@ -65,9 +65,9 @@
       &nbsp;
       <a href="/movies?start=<%= prevIndex %>" class="btn">‹</a>
       <a href="new.html" class="btn new">NEW</a>
-      <a href="/movies?start=<%= nextIndex %>" class="btn">»</a>
+      <a href="/movies?start=<%= nextIndex %>" class="btn">›</a>
       &nbsp;
-      <a href="/movies?start=<%= maxIndex %>" class="btn">›</a>
+      <a href="/movies?start=<%= maxIndex %>" class="btn">»</a>
     </div>
 
     </div>
